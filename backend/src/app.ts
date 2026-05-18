@@ -1,11 +1,18 @@
-import express, { Application, Request, Response } from "express";
+import express, { Application, Request, Response, NextFunction } from "express";
 import cors from "cors";
 import morgan from "morgan";
 import authRoutes from "./routes/auth.routes";
 import leadRoutes from "./routes/lead.routes";
 import { errorHandler, notFound } from "./middleware/error";
+import { connectDB } from "./config/db";
 
 const app: Application = express();
+
+// Ensure MongoDB is connected before API handlers (required on Vercel/serverless)
+app.use((req: Request, res: Response, next: NextFunction) => {
+  if (req.path === "/api/health") return next();
+  connectDB().then(() => next()).catch(next);
+});
 
 app.use(
   cors({
