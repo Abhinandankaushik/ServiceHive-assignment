@@ -32,8 +32,8 @@ export const Login = () => {
           </div>
         </div>
         <form className="space-y-4" onSubmit={submit}>
-          <Input label="Email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-          <Input label="Password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+          <Input label="Email" type="email" autoComplete="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+          <Input label="Password" type="password" autoComplete="current-password" value={password} onChange={(e) => setPassword(e.target.value)} required />
           <Button type="submit" className="w-full" loading={loading}>Sign in</Button>
         </form>
         <p className="mt-4 text-center text-sm text-slate-500">

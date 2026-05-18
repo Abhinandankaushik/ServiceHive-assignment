@@ -28,9 +28,9 @@ export const Register = () => {
       <div className="w-full max-w-md rounded-2xl border border-slate-200 bg-white p-8 shadow-xl dark:border-slate-800 dark:bg-slate-900">
         <h1 className="mb-6 text-xl font-bold">Create your account</h1>
         <form className="space-y-4" onSubmit={submit}>
-          <Input label="Name" value={name} onChange={(e) => setName(e.target.value)} required minLength={2} />
-          <Input label="Email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-          <Input label="Password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} required minLength={6} />
+          <Input label="Name" autoComplete="name" value={name} onChange={(e) => setName(e.target.value)} required minLength={2} />
+          <Input label="Email" type="email" autoComplete="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+          <Input label="Password" type="password" autoComplete="new-password" value={password} onChange={(e) => setPassword(e.target.value)} required minLength={6} />
           <Select label="Role" value={role} onChange={(e) => setRole(e.target.value as "admin" | "sales")}>
             <option value="sales">Sales User</option>
             <option value="admin">Admin</option>
